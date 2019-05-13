@@ -33,9 +33,11 @@ router.beforeEach((to,from,next)=>{
     //只要本地有token就认为登录
     const token =localStorage.getItem('token');
     if(token) {
+      console.log('已登录');
       next();
     }else {
       //未登录
+      console.log('未登录');
       next({
         path:'/login',
         query:{redirect:to.path}//查询参

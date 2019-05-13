@@ -5,7 +5,7 @@
                 :schema="schema"
                 :immediate-validate="false"
                 @validate="validateHandler"
-                @submit="submitHandler">
+                @submit.prevent="submitHandler">
 
         </cube-form>
     </div>
@@ -56,10 +56,10 @@
             },
             submitHandler(e){
                 //登录请求
-                this.$store.dispatch('user/login',this.model).then(success=>{
+                this.$store.dispatch('login',this.model).then(success=>{
                     if(success) {
-                       const path=this.$route.query.redirect || '/';
-                       this.$router.push(path);
+                        const path=this.$route.query.redirect || '/';
+                        this.$router.push(path);
                     }
                 }).catch(error=>{
                     const toast=this.$createToast({
@@ -68,7 +68,6 @@
                         type:'error'
                     }).show();
                 })
-
             }
         },
     }

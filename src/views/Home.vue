@@ -7,8 +7,10 @@
 <script>
 export default {
   name: 'home',
-  components: {
-
+  created() {
+    this.$ajax.get('/api/userInfo').then((data)=>{
+      console.log(data);
+    });
   }
 }
 </script>
