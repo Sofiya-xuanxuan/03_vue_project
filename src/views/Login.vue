@@ -52,7 +52,7 @@
         },
         methods: {
             validateHandler(ret) {
-                console.log(ret);
+                //console.log(ret);
             },
             submitHandler(e){
                 //登录请求
